@@ -1,0 +1,17 @@
+package: community.lazycat.app.dagu
+version: 2.20.1
+name: Dagu
+description: YAML 工作流编排与任务调度平台
+min_os_version: 1.5.0
+homepage: https://github.com/dagucloud/dagu
+author: dagucloud
+locales:
+  zh:
+    name: Dagu
+    description: YAML 工作流编排与任务调度平台
+  en:
+    name: Dagu
+    description: Dagu self-hosted application
+permissions:
+  required:
+  - net.internet
