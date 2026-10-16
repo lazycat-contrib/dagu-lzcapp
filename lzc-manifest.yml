@@ -1,27 +1,20 @@
 application:
-  subdomain: dagu
   public_path:
   - /
+  subdomain: dagu
   upstreams:
-  - location: /
-    backend: http://dagu:8080/
-  injects:
-  - id: open-save-chooser
-    'on': browser
-    when:
-    - /*
-    do:
-    - src: file:///lzcapp/pkg/content/lazycat-injects/lzc-file-chooser-inject.js
+  - backend: http://dagu:8080/
+    location: /
 services:
   dagu:
-    image: ghcr.1ms.run/dagucloud/dagu:v2.20.1
+    binds:
+    - /lzcapp/var/data:/var/lib/dagu
+    command: dagu start-all
     environment:
     - TZ=Asia/Shanghai
     - DAGU_HOST=0.0.0.0
     - DAGU_PORT=8080
     - DAGU_HOME=/var/lib/dagu
     - DAGU_AUTH_MODE=builtin
-    binds:
-    - /lzcapp/var/data:/var/lib/dagu
-    command: dagu start-all
+    image: ghcr.1ms.run/dagucloud/dagu:v2.20.1
 usage: 首次打开请立即在 /setup 创建管理员。保留内置认证，工作流可执行命令，仅限可信用户。不挂载宿主 Docker socket。
