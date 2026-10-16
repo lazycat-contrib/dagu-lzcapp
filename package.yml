@@ -1,4 +1,5 @@
 package: community.lazycat.app.dagu
+license: GPL-3.0
 version: 2.20.1
 name: Dagu
 description: YAML 工作流编排与任务调度平台
@@ -14,4 +15,4 @@ locales:
     description: Dagu self-hosted application
 permissions:
   required:
-  - net.internet
+    - net.internet
